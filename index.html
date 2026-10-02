@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NetPick | نت بِك</title>
+    <title>NetPick | نت بِك - اختيارك للشبكة صار أسهل</title>
+
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
-            background: #0b1329;
+            background-color: #0b1329;
             color: #f8fafc;
             padding-bottom: 50px;
             min-height: 100vh;
+            text-align: right;
         }
+
         header {
             background: #0f172a;
             padding: 15px 30px;
@@ -28,18 +32,22 @@
             top: 0;
             z-index: 100;
         }
+
         .logo-title {
             font-size: 22px;
             font-weight: 800;
-            color: white;
+            color: #ffffff;
         }
+
         .logo-title span {
             color: #38bdf8;
         }
+
         .logo-sub {
             font-size: 12px;
             color: #94a3b8;
         }
+
         .cart-btn {
             background: #1e293b;
             border: 1px solid #38bdf8;
@@ -49,11 +57,13 @@
             font-weight: bold;
             cursor: pointer;
         }
+
         .hero {
             text-align: center;
             padding: 50px 20px;
             background: linear-gradient(180deg, #0f172a 0%, #0b1329 100%);
         }
+
         .tag {
             background: rgba(56, 189, 248, 0.1);
             color: #38bdf8;
@@ -65,18 +75,23 @@
             display: inline-block;
             margin-bottom: 15px;
         }
+
         .hero h1 {
             font-size: 32px;
+            font-weight: 800;
             margin-bottom: 15px;
+            color: #ffffff;
         }
+
         .hero p {
             color: #94a3b8;
             font-size: 16px;
             max-width: 600px;
-            margin: 0 auto 25px;
+            margin: 0 auto 25px auto;
         }
+
         .main-btn {
-            background: linear-gradient(135deg, #0284c7, #2563eb);
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
             color: white;
             border: none;
             padding: 14px 28px;
@@ -84,32 +99,38 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(2,132,199,.4);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+            transition: 0.2s;
         }
+
         .main-btn:hover {
             transform: translateY(-2px);
         }
+
         .container {
             max-width: 800px;
-            margin: auto;
+            margin: 0 auto;
             padding: 0 20px;
         }
+
         .card {
             background: #0f172a;
             border-radius: 16px;
             border: 1px solid #1e293b;
             padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
+
         .card-title {
             color: #38bdf8;
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border-bottom: 1px solid #1e293b;
             padding-bottom: 10px;
         }
+
         .q-label {
             font-size: 14px;
             font-weight: bold;
@@ -117,12 +138,23 @@
             margin-bottom: 10px;
             display: block;
         }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 12px;
-            margin-bottom: 20px;
         }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
         .opt-card {
             background: #1e293b;
             border: 2px solid #334155;
@@ -130,38 +162,58 @@
             padding: 12px;
             text-align: right;
             cursor: pointer;
-            transition: .2s;
+            transition: 0.2s;
         }
+
         .opt-card:hover,
         .opt-card.active {
             border-color: #38bdf8;
             background: #162032;
         }
+
         .opt-title {
             color: #38bdf8;
             font-weight: bold;
             font-size: 14px;
             margin-bottom: 4px;
         }
+
         .opt-desc {
             color: #94a3b8;
             font-size: 12px;
         }
+
         .result {
             display: none;
             margin-top: 20px;
-            padding: 18px;
+            padding: 20px;
             border-radius: 12px;
             background: #162032;
             border: 1px solid #38bdf8;
         }
+
         .result.show {
             display: block;
         }
+
         .result h3 {
             color: #38bdf8;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
+
+        .result p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .result-product {
+            margin-top: 15px;
+            padding: 15px;
+            background: #0f172a;
+            border-radius: 10px;
+            border: 1px solid #1e293b;
+        }
+
         .product-row {
             background: #162032;
             border: 1px solid #1e293b;
@@ -174,262 +226,1223 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .p-title {
             font-weight: bold;
-            color: white;
+            color: #ffffff;
             font-size: 15px;
         }
+
         .p-desc {
             color: #94a3b8;
             font-size: 12px;
             margin-top: 3px;
         }
+
         .p-price {
             color: #38bdf8;
             font-weight: 800;
             font-size: 16px;
         }
+
         .add-btn {
             background: #1e293b;
             border: 1px solid #334155;
             color: white;
             padding: 8px 14px;
             border-radius: 8px;
+            font-size: 12px;
             cursor: pointer;
             font-weight: bold;
         }
+
         .add-btn:hover {
             border-color: #38bdf8;
         }
-        #cartBox {
+
+        /* السلة */
+        #cartSection {
             display: none;
         }
-        #cartBox.show {
-            display: block;
-        }
+
         .cart-item {
+            background: #162032;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #1e293b;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
-        .empty {
-            color: #94a3b8;
+
+        .cart-item-name {
+            font-weight: bold;
+            color: white;
+        }
+
+        .cart-item-price {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .remove-btn {
+            background: #1e293b;
+            color: #f87171;
+            border: 1px solid #475569;
+            padding: 6px 10px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .total-box {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .total-price {
+            color: #38bdf8;
+        }
+
+        .empty-cart {
             text-align: center;
-            padding: 10px;
+            color: #94a3b8;
+            padding: 20px;
+        }
+
+        /* الدفع */
+        #checkoutSection {
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #e2e8f0;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            background: #1e293b;
+            color: white;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #38bdf8;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            background: #1e293b;
+            border: 2px solid #334155;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+        }
+
+        .payment-option.active {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* خدمة العملاء */
+        .support-box {
+            text-align: center;
+        }
+
+        .support-box p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .support-btn {
+            display: inline-block;
+            background: #1e293b;
+            color: #38bdf8;
+            border: 1px solid #38bdf8;
+            padding: 10px 18px;
+            border-radius: 9px;
+            margin: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .success-message {
+            display: none;
+            background: #162032;
+            border: 1px solid #38bdf8;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 12px 15px;
+            }
+
+            .logo-title {
+                font-size: 18px;
+            }
+
+            .hero h1 {
+                font-size: 25px;
+            }
+
+            .product-row {
+                align-items: flex-start;
+            }
+
+            .product-row > div:last-child {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
         }
     </style>
 </head>
+
 <body>
+
 <header>
     <div>
         <div class="logo-title">
             NetPick | <span>نت بِك</span>
         </div>
-        <div class="logo-sub">اختيارك للشبكة صار أسهل</div>
+        <div class="logo-sub">
+            اختيارك للشبكة صار أسهل
+        </div>
     </div>
-    <button class="cart-btn" onclick="toggleCart()">
+
+    <button class="cart-btn" onclick="openCart()">
         🛒 السلة (<span id="cartCount">0</span>)
     </button>
 </header>
+
+
 <section class="hero">
-    <span class="tag">متجر أجهزة وحلول الشبكات</span>
-    <h1>نساعدك تختار الجهاز المناسب لاحتياجك!</h1>
+
+    <span class="tag">
+        متجر أجهزة وحلول الشبكات
+    </span>
+
+    <h1>
+        نساعدك تختار الجهاز المناسب لاحتياجك!
+    </h1>
+
     <p>
-        سواء كانت مشكلتك ضعف التغطية أو بطء الألعاب،
-        نحدد لك الجهاز المناسب بضغطة زر.
+        سواء كانت مشكلتك ضعف التغطية، أو بطء الألعاب،
+        نحدد لك الباقة والجهاز المثالي بضغطة زر.
     </p>
-    <button class="main-btn" onclick="scrollToService()">
+
+    <button class="main-btn" onclick="goToService()">
         ✨ تجربة خدمة «خلّنا نختار لك»
     </button>
+
 </section>
+
+
 <div class="container">
-    <div class="card" id="service">
+
+
+    <!-- خدمة اختيار الجهاز -->
+
+    <div class="card" id="serviceSection">
+
         <div class="card-title">
             🎯 خدمة «خلّنا نختار لك»
         </div>
-        <span class="q-label">
-            1. ما هي مساحة ونوع المكان؟
-        </span>
-        <div class="grid-3">
-            <div class="opt-card active"
-                 onclick="selectOption(this, 'small')">
-                <div class="opt-title">🏢 شقة أو مكتب</div>
-                <div class="opt-desc">أقل من 150 متر مربع</div>
+
+
+        <!-- السؤال الأول -->
+
+        <div class="question">
+
+            <span class="q-label">
+                1. ما هي مساحة ونوع المكان؟
+            </span>
+
+            <div class="grid-3">
+
+                <div class="opt-card active"
+                     onclick="chooseOption(this,'space','small')">
+
+                    <div class="opt-title">
+                        🏢 شقة أو مكتب
+                    </div>
+
+                    <div class="opt-desc">
+                        أقل من 150 متر مربع
+                    </div>
+
+                </div>
+
+
+                <div class="opt-card"
+                     onclick="chooseOption(this,'space','medium')">
+
+                    <div class="opt-title">
+                        🏡 منزل متوسط / دورين
+                    </div>
+
+                    <div class="opt-desc">
+                        150 - 350 متر مربع
+                    </div>
+
+                </div>
+
+
+                <div class="opt-card"
+                     onclick="chooseOption(this,'space','large')">
+
+                    <div class="opt-title">
+                        🏰 فيلا / مقر شركة
+                    </div>
+
+                    <div class="opt-desc">
+                        أكثر من 350 متر مربع
+                    </div>
+
+                </div>
+
             </div>
-            <div class="opt-card"
-                 onclick="selectOption(this, 'medium')">
-                <div class="opt-title">🏡 منزل متوسط / دورين</div>
-                <div class="opt-desc">150 - 350 متر مربع</div>
-            </div>
-            <div class="opt-card"
-                 onclick="selectOption(this, 'large')">
-                <div class="opt-title">🏰 فيلا / مقر شركة</div>
-                <div class="opt-desc">أكثر من 350 متر مربع</div>
-            </div>
+
         </div>
+
+
+        <!-- السؤال الثاني -->
+
+        <div class="question">
+
+            <span class="q-label">
+                2. ما هو الاستخدام الأساسي للإنترنت؟
+            </span>
+
+            <div class="grid-3">
+
+                <div class="opt-card active"
+                     onclick="chooseOption(this,'usage','normal')">
+
+                    <div class="opt-title">
+                        🌐 تصفح ودراسة
+                    </div>
+
+                    <div class="opt-desc">
+                        مواقع، دراسة، اجتماعات وفيديو
+                    </div>
+
+                </div>
+
+
+                <div class="opt-card"
+                     onclick="chooseOption(this,'usage','gaming')">
+
+                    <div class="opt-title">
+                        🎮 ألعاب
+                    </div>
+
+                    <div class="opt-desc">
+                        ألعاب أونلاين وPing منخفض
+                    </div>
+
+                </div>
+
+
+                <div class="opt-card"
+                     onclick="chooseOption(this,'usage','streaming')">
+
+                    <div class="opt-title">
+                        🎬 أفلام وبث
+                    </div>
+
+                    <div class="opt-desc">
+                        مشاهدة وبث بجودة عالية
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- السؤال الثالث -->
+
+        <div class="question">
+
+            <span class="q-label">
+                3. ما هي المشكلة التي تواجهها؟
+            </span>
+
+            <div class="grid-3">
+
+                <div class="opt-card active"
+                     onclick="chooseOption(this,'problem','coverage')">
+
+                    <div class="opt-title">
+                        📶 ضعف التغطية
+                    </div>
+
+                    <div class="opt-desc">
+                        الإشارة ضعيفة في بعض الأماكن
+                    </div>
+
+                </div>
+
+
+                <div class="opt-card"
+                     onclick="chooseOption(this,'problem','speed')">
+
+                    <div class="opt-title">
+                        ⚡ بطء الإنترنت
+                    </div>
+
+                    <div class="opt-desc">
+                        السرعة غير مستقرة
+                    </div>
+
+                </div>
+
+
+                <div class="opt-card"
+                     onclick="chooseOption(this,'problem','ping')">
+
+                    <div class="opt-title">
+                        🎮 ارتفاع الـ Ping
+                    </div>
+
+                    <div class="opt-desc">
+                        مشكلة أثناء الألعاب
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
         <button class="main-btn"
                 style="width:100%; border-radius:10px;"
                 onclick="showRecommendation()">
+
             عرض الحل والمقترح المناسب ➔
+
         </button>
-        <div id="result" class="result">
-            <h3 id="resultTitle"></h3>
-            <p id="resultText"></p>
+
+
+        <!-- النتيجة -->
+
+        <div id="recommendation" class="result">
+
+            <h3 id="recommendationTitle">
+                💡 الحل المقترح لك
+            </h3>
+
+            <p id="recommendationText"></p>
+
+            <div class="result-product">
+
+                <div class="p-title" id="recommendationProduct"></div>
+
+                <div class="p-desc" id="recommendationDescription"></div>
+
+                <div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center;">
+
+                    <span class="p-price" id="recommendationPrice"></span>
+
+                    <button class="add-btn"
+                            onclick="addRecommendedProduct()">
+
+                        إضافة +
+
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
+
     </div>
+
+
+
+    <!-- الباقات والأجهزة -->
+
     <div class="card">
+
         <div class="card-title">
             📦 الباقات والأجهزة الأكثر طلباً
         </div>
+
+
+        <!-- المنتج 1 -->
+
         <div class="product-row">
+
             <div>
+
                 <div class="p-title">
                     منظومة Mesh Wi-Fi 6 (3 قطع)
                 </div>
+
                 <div class="p-desc">
-                    تغطية شاملة للمنازل والفلل بدون انقطاع.
+                    تغطية شاملة للمنازل والفلل بدون انقطاع وباسم شبكة واحد.
                 </div>
+
             </div>
-            <div>
-                <span class="p-price">590 ر.س</span>
+
+            <div style="display:flex; align-items:center; gap:15px;">
+
+                <span class="p-price">
+                    590 ر.س
+                </span>
+
                 <button class="add-btn"
-                        onclick="addToCart('Mesh Wi-Fi 6', 590)">
+                        onclick="addToCart('منظومة Mesh Wi-Fi 6 (3 قطع)',590)">
+
                     إضافة +
+
                 </button>
+
             </div>
+
         </div>
+
+
+        <!-- المنتج 2 -->
+
         <div class="product-row">
+
             <div>
+
                 <div class="p-title">
                     راوتر قيمنق احترافي Wi-Fi 6E
                 </div>
+
                 <div class="p-desc">
-                    سرعات عالية للألعاب مع Ping منخفض.
+                    سرعات خارقة للألعاب والأفلام مع بنج (Ping) منخفض جداً.
                 </div>
+
             </div>
-            <div>
-                <span class="p-price">340 ر.س</span>
+
+            <div style="display:flex; align-items:center; gap:15px;">
+
+                <span class="p-price">
+                    340 ر.س
+                </span>
+
                 <button class="add-btn"
-                        onclick="addToCart('راوتر قيمنق Wi-Fi 6E', 340)">
+                        onclick="addToCart('راوتر قيمنق احترافي Wi-Fi 6E',340)">
+
                     إضافة +
+
                 </button>
+
             </div>
+
         </div>
+
+
+        <!-- المنتج 3 -->
+
         <div class="product-row">
+
             <div>
+
                 <div class="p-title">
-                    Gigabit Switch (8 Ports)
+                    موزع شبكة Gigabit Switch (8 Ports)
                 </div>
+
                 <div class="p-desc">
-                    لتوزيع الإنترنت عالي السرعة.
+                    لتوزيع الإنترنت عالي السرعة للمكاتب والأجهزة الذكية.
                 </div>
+
             </div>
-            <div>
-                <span class="p-price">120 ر.س</span>
+
+            <div style="display:flex; align-items:center; gap:15px;">
+
+                <span class="p-price">
+                    120 ر.س
+                </span>
+
                 <button class="add-btn"
-                        onclick="addToCart('Gigabit Switch', 120)">
+                        onclick="addToCart('موزع شبكة Gigabit Switch (8 Ports)',120)">
+
                     إضافة +
+
                 </button>
+
             </div>
+
         </div>
+
     </div>
-    <div class="card" id="cartBox">
+
+
+
+    <!-- السلة -->
+
+    <div class="card" id="cartSection">
+
         <div class="card-title">
             🛒 سلة التسوق
         </div>
+
         <div id="cartItems"></div>
-        <h3 style="margin-top:15px;">
-            الإجمالي:
-            <span id="total">0</span> ر.س
-        </h3>
-    </div>
-</div>
-<script>
-let selectedOption = "small";
-let cart = [];
-function selectOption(element, option) {
-    document.querySelectorAll(".opt-card")
-        .forEach(card => card.classList.remove("active"));
-    element.classList.add("active");
-    selectedOption = option;
-}
-function showRecommendation() {
-    const result = document.getElementById("result");
-    const title = document.getElementById("resultTitle");
-    const text = document.getElementById("resultText");
-    if (selectedOption === "small") {
-        title.textContent = "💡 اقتراحنا لك";
-        text.textContent =
-            "راوتر Wi-Fi 6 مناسب للشقق والمكاتب الصغيرة.";
-    } else if (selectedOption === "medium") {
-        title.textContent = "💡 اقتراحنا لك";
-        text.textContent =
-            "منظومة Mesh Wi-Fi 6 تساعد على تغطية المنزل كاملًا، خصوصًا مع وجود دورين.";
-    } else {
-        title.textContent = "💡 اقتراحنا لك";
-        text.textContent =
-            "منظومة Mesh Wi-Fi 6 متعددة القطع مناسبة للمساحات الكبيرة والفلل والمقرات.";
-    }
-    result.classList.add("show");
-}
-function addToCart(name, price) {
-    cart.push({
-        name: name,
-        price: price
-    });
-    updateCart();
-    alert("✅ تمت إضافة المنتج إلى السلة");
-}
-function updateCart() {
-    document.getElementById("cartCount").textContent = cart.length;
-    const cartItems = document.getElementById("cartItems");
-    cartItems.innerHTML = "";
-    if (cart.length === 0) {
-        cartItems.innerHTML =
-            '<div class="empty">السلة فارغة</div>';
-        return;
-    }
-    let total = 0;
-    cart.forEach((item, index) => {
-        total += item.price;
-        const div = document.createElement("div");
-        div.className = "cart-item";
-        div.innerHTML = `
-            <span>${item.name}</span>
+
+        <div class="total-box">
+
             <span>
-                ${item.price} ر.س
-                <button
-                    class="add-btn"
-                    onclick="removeFromCart(${index})">
-                    حذف
-                </button>
+                الإجمالي
             </span>
-        `;
-        cartItems.appendChild(div);
-    });
-    document.getElementById("total").textContent = total;
-}
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-function toggleCart() {
-    const cartBox = document.getElementById("cartBox");
-    cartBox.classList.toggle("show");
-    updateCart();
-    if (cartBox.classList.contains("show")) {
-        cartBox.scrollIntoView({
+
+            <span class="total-price">
+                <span id="cartTotal">0</span> ر.س
+            </span>
+
+        </div>
+
+        <button class="main-btn"
+                style="width:100%; margin-top:20px;"
+                onclick="goToCheckout()">
+
+            💳 الانتقال للدفع
+
+        </button>
+
+    </div>
+
+
+
+    <!-- الدفع -->
+
+    <div class="card" id="checkoutSection">
+
+        <div class="card-title">
+            💳 إتمام الطلب والدفع
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                الاسم الكامل
+            </label>
+
+            <input type="text"
+                   id="customerName"
+                   placeholder="اكتب اسمك">
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                رقم الجوال
+            </label>
+
+            <input type="tel"
+                   id="customerPhone"
+                   placeholder="05xxxxxxxx">
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                العنوان
+            </label>
+
+            <input type="text"
+                   id="customerAddress"
+                   placeholder="اكتب عنوان التوصيل">
+
+        </div>
+
+
+        <span class="q-label">
+            طريقة الدفع
+        </span>
+
+
+        <div class="payment-options">
+
+            <div class="payment-option active"
+                 onclick="selectPayment(this,'card')">
+
+                💳 بطاقة بنكية
+
+            </div>
+
+
+            <div class="payment-option"
+                 onclick="selectPayment(this,'mada')">
+
+                🟢 مدى
+
+            </div>
+
+
+            <div class="payment-option"
+                 onclick="selectPayment(this,'cash')">
+
+                💵 الدفع عند الاستلام
+
+            </div>
+
+        </div>
+
+
+        <button class="main-btn"
+                style="width:100%;"
+                onclick="completeOrder()">
+
+            تأكيد الطلب ✓
+
+        </button>
+
+
+        <div class="success-message"
+             id="successMessage">
+
+            <h3>
+                🎉 تم استلام طلبك بنجاح!
+            </h3>
+
+            <p>
+                شكرًا لاختيارك NetPick.
+                سيتم التواصل معك لتأكيد الطلب والتوصيل.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- خدمة العملاء -->
+
+    <div class="card">
+
+        <div class="card-title">
+            📞 خدمة العملاء
+        </div>
+
+        <div class="support-box">
+
+            <p>
+                عندك سؤال أو تحتاج مساعدة في اختيار الجهاز؟
+                تواصل معنا.
+            </p>
+
+
+            <button class="support-btn"
+                    onclick="alert('📞 خدمة العملاء: 0500000000')">
+
+                📞 اتصل بنا
+
+            </button>
+
+
+            <button class="support-btn"
+                    onclick="alert('💬 سيتم فتح المحادثة مع خدمة العملاء')">
+
+                💬 المحادثة
+
+            </button>
+
+
+            <button class="support-btn"
+                    onclick="alert('✉️ البريد الإلكتروني: support@netpick.com')">
+
+                ✉️ البريد الإلكتروني
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+    /* =========================
+       بيانات الاختيارات
+    ========================= */
+
+    let answers = {
+        space: "small",
+        usage: "normal",
+        problem: "coverage"
+    };
+
+
+    let cart = [];
+
+
+    let selectedPayment = "card";
+
+
+    let recommendedProduct = {
+        name: "",
+        price: 0,
+        description: ""
+    };
+
+
+
+    /* =========================
+       اختيار الإجابات
+    ========================= */
+
+    function chooseOption(element, type, value) {
+
+        const parent = element.parentElement;
+
+        parent.querySelectorAll(".opt-card")
+            .forEach(card => {
+                card.classList.remove("active");
+            });
+
+        element.classList.add("active");
+
+        answers[type] = value;
+    }
+
+
+
+    /* =========================
+       عرض الحل المناسب
+    ========================= */
+
+    function showRecommendation() {
+
+        const result =
+            document.getElementById("recommendation");
+
+        const title =
+            document.getElementById("recommendationTitle");
+
+        const text =
+            document.getElementById("recommendationText");
+
+        const product =
+            document.getElementById("recommendationProduct");
+
+        const description =
+            document.getElementById("recommendationDescription");
+
+        const price =
+            document.getElementById("recommendationPrice");
+
+
+        /*
+          إذا كانت المشكلة ضعف التغطية
+        */
+
+        if (answers.problem === "coverage") {
+
+            title.textContent =
+                "💡 الحل المقترح: تحسين التغطية";
+
+            text.textContent =
+                "بناءً على إجاباتك، نوصي باستخدام منظومة Mesh Wi-Fi لتوفير تغطية أكثر شمولاً وثباتاً داخل المكان.";
+
+            recommendedProduct.name =
+                "منظومة Mesh Wi-Fi 6 (3 قطع)";
+
+            recommendedProduct.price =
+                590;
+
+            recommendedProduct.description =
+                "مناسبة لتغطية المنازل والمساحات الكبيرة وتقليل المناطق ضعيفة الإشارة.";
+
+        }
+
+
+        /*
+          إذا كانت المشكلة Ping
+        */
+
+        else if (answers.problem === "ping") {
+
+            title.textContent =
+                "💡 الحل المقترح: تحسين تجربة الألعاب";
+
+            text.textContent =
+                "بما أن استخدامك الأساسي للألعاب وتعاني من ارتفاع الـ Ping، نوصي براوتر قيمنق مخصص.";
+
+            recommendedProduct.name =
+                "راوتر قيمنق احترافي Wi-Fi 6E";
+
+            recommendedProduct.price =
+                340;
+
+            recommendedProduct.description =
+                "مصمم للألعاب وسرعات الاتصال العالية وتجربة أكثر استقراراً.";
+
+        }
+
+
+        /*
+          إذا كانت المشكلة السرعة
+        */
+
+        else {
+
+            title.textContent =
+                "💡 الحل المقترح: تحسين السرعة";
+
+            text.textContent =
+                "بناءً على إجاباتك، نوصي بجهاز يساعد على توزيع الاتصال بسرعة واستقرار داخل الشبكة.";
+
+            recommendedProduct.name =
+                "موزع شبكة Gigabit Switch (8 Ports)";
+
+            recommendedProduct.price =
+                120;
+
+            recommendedProduct.description =
+                "مناسب لتوصيل عدة أجهزة بالشبكة بسرعة عالية.";
+
+        }
+
+
+        product.textContent =
+            recommendedProduct.name;
+
+        description.textContent =
+            recommendedProduct.description;
+
+        price.textContent =
+            recommendedProduct.price + " ر.س";
+
+
+        result.classList.add("show");
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+
+
+
+    /* =========================
+       إضافة المنتج المقترح
+    ========================= */
+
+    function addRecommendedProduct() {
+
+        addToCart(
+            recommendedProduct.name,
+            recommendedProduct.price
+        );
+    }
+
+
+
+    /* =========================
+       إضافة للسلة
+    ========================= */
+
+    function addToCart(name, price) {
+
+        cart.push({
+            name: name,
+            price: price
+        });
+
+        updateCart();
+
+        alert("✅ تمت إضافة المنتج إلى السلة");
+    }
+
+
+
+    /* =========================
+       تحديث السلة
+    ========================= */
+
+    function updateCart() {
+
+        const cartCount =
+            document.getElementById("cartCount");
+
+        const cartItems =
+            document.getElementById("cartItems");
+
+        const cartTotal =
+            document.getElementById("cartTotal");
+
+
+        cartCount.textContent =
+            cart.length;
+
+
+        cartItems.innerHTML = "";
+
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML =
+                '<div class="empty-cart">🛒 السلة فارغة</div>';
+
+            cartTotal.textContent = "0";
+
+            return;
+        }
+
+
+        let total = 0;
+
+
+        cart.forEach((item, index) => {
+
+            total += item.price;
+
+
+            const itemDiv =
+                document.createElement("div");
+
+            itemDiv.className =
+                "cart-item";
+
+
+            itemDiv.innerHTML = `
+
+                <div>
+                    <div class="cart-item-name">
+                        ${item.name}
+                    </div>
+
+                    <div class="cart-item-price">
+                        ${item.price} ر.س
+                    </div>
+                </div>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeFromCart(${index})">
+
+                    حذف
+
+                </button>
+            `;
+
+
+            cartItems.appendChild(itemDiv);
+
+        });
+
+
+        cartTotal.textContent =
+            total;
+    }
+
+
+
+    /* =========================
+       حذف من السلة
+    ========================= */
+
+    function removeFromCart(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+    }
+
+
+
+    /* =========================
+       فتح السلة
+    ========================= */
+
+    function openCart() {
+
+        const cartSection =
+            document.getElementById("cartSection");
+
+        cartSection.style.display = "block";
+
+        updateCart();
+
+        cartSection.scrollIntoView({
             behavior: "smooth"
         });
     }
-}
-function scrollToService() {
-    document.getElementById("service")
-        .scrollIntoView({
+
+
+
+    /* =========================
+       الانتقال لخدمة الاختيار
+    ========================= */
+
+    function goToService() {
+
+        document.getElementById("serviceSection")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+    }
+
+
+
+    /* =========================
+       الدفع
+    ========================= */
+
+    function goToCheckout() {
+
+        if (cart.length === 0) {
+
+            alert("🛒 أضيفي منتج إلى السلة أولاً");
+
+            return;
+        }
+
+
+        const checkout =
+            document.getElementById("checkoutSection");
+
+        checkout.style.display = "block";
+
+
+        checkout.scrollIntoView({
             behavior: "smooth"
         });
-}
+    }
+
+
+
+    /* =========================
+       اختيار طريقة الدفع
+    ========================= */
+
+    function selectPayment(element, payment) {
+
+        document.querySelectorAll(".payment-option")
+            .forEach(option => {
+                option.classList.remove("active");
+            });
+
+
+        element.classList.add("active");
+
+        selectedPayment = payment;
+    }
+
+
+
+    /* =========================
+       إتمام الطلب
+    ========================= */
+
+    function completeOrder() {
+
+        const name =
+            document.getElementById("customerName").value.trim();
+
+        const phone =
+            document.getElementById("customerPhone").value.trim();
+
+        const address =
+            document.getElementById("customerAddress").value.trim();
+
+
+        if (cart.length === 0) {
+
+            alert("🛒 السلة فارغة");
+
+            return;
+        }
+
+
+        if (!name || !phone || !address) {
+
+            alert("⚠️ فضلاً املئي جميع بيانات الطلب");
+
+            return;
+        }
+
+
+        const success =
+            document.getElementById("successMessage");
+
+
+        success.classList.add("show");
+
+
+        success.scrollIntoView({
+            behavior: "smooth"
+        });
+
+
+        /*
+          تفريغ السلة بعد تأكيد الطلب
+        */
+
+        cart = [];
+
+        updateCart();
+    }
+
+
+
+    /*
+      تحديث السلة عند فتح الصفحة
+    */
+
+    updateCart();
+
 </script>
+
 </body>
 </html>
