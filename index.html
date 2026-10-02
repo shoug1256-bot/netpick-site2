@@ -3,121 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NetPick | نت بِك - اختيارك للشبكة صار أسهل</title>
+    <title>NetPick | نت بِك</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0b1329; color: #f8fafc; padding-bottom: 50px; min-height: 100vh; text-align: right; }
-        
-        header { background: #0f172a; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100; }
-        .logo-title { font-size: 22px; font-weight: 800; color: #ffffff; }
-        .logo-title span { color: #38bdf8; }
-        .logo-sub { font-size: 12px; color: #94a3b8; }
-        .cart-btn { background: #1e293b; border: 1px solid #38bdf8; color: #38bdf8; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; }
-
-        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(180deg, #0f172a 0%, #0b1329 100%); }
-        .tag { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
-        .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 15px; color: #ffffff; }
-        .hero p { color: #94a3b8; font-size: 16px; max-width: 600px; margin: 0 auto 25px auto; }
-        .main-btn { background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); }
-
-        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-        .card { background: #0f172a; border-radius: 16px; border: 1px solid #1e293b; padding: 25px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .card-title { color: #38bdf8; font-size: 20px; font-weight: 700; margin-bottom: 15px; border-bottom: 1px solid #1e293b; padding-bottom: 10px; }
-        
-        .q-label { font-size: 14px; font-weight: bold; color: #e2e8f0; margin-bottom: 10px; display: block; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
-        .opt-card { background: #1e293b; border: 2px solid #334155; border-radius: 10px; padding: 12px; text-align: right; cursor: pointer; transition: 0.2s; }
-        .opt-card.active, .opt-card:hover { border-color: #38bdf8; background: #162032; }
-        .opt-title { color: #38bdf8; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
-        .opt-desc { color: #94a3b8; font-size: 12px; }
-
-        .product-row { background: #162032; border: 1px solid #1e293b; border-radius: 10px; padding: 15px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .p-title { font-weight: bold; color: #ffffff; font-size: 15px; }
-        .p-desc { color: #94a3b8; font-size: 12px; margin-top: 3px; }
-        .p-price { color: #38bdf8; font-weight: 800; font-size: 16px; }
-        .add-btn { background: #1e293b; border: 1px solid #334155; color: white; padding: 8px 14px; border-radius: 8px; font-size: 12px; cursor: pointer; font-weight: bold; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+        body {
+            background: #0b1329;
+            color: #f8fafc;
+            padding-bottom: 50px;
+            min-height: 100vh;
+        }
+        header {
+            background: #0f172a;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+        }
+        .logo-title span {
+            color: #38bdf8;
+        }
+        .logo-sub {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        .cart-btn {
+            background: #1e293b;
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(180deg, #0f172a 0%, #0b1329 100%);
+        }
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            color: #94a3b8;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+        .main-btn {
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(2,132,199,.4);
+        }
+        .main-btn:hover {
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: #0f172a;
+            border-radius: 16px;
+            border: 1px solid #1e293b;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.3);
+        }
+        .card-title {
+            color: #38bdf8;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 10px;
+        }
+        .q-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #e2e8f0;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .opt-card {
+            background: #1e293b;
+            border: 2px solid #334155;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: right;
+            cursor: pointer;
+            transition: .2s;
+        }
+        .opt-card:hover,
+        .opt-card.active {
+            border-color: #38bdf8;
+            background: #162032;
+        }
+        .opt-title {
+            color: #38bdf8;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .opt-desc {
+            color: #94a3b8;
+            font-size: 12px;
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #162032;
+            border: 1px solid #38bdf8;
+        }
+        .result.show {
+            display: block;
+        }
+        .result h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+        .product-row {
+            background: #162032;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .p-title {
+            font-weight: bold;
+            color: white;
+            font-size: 15px;
+        }
+        .p-desc {
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+        .p-price {
+            color: #38bdf8;
+            font-weight: 800;
+            font-size: 16px;
+        }
+        .add-btn {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .add-btn:hover {
+            border-color: #38bdf8;
+        }
+        #cartBox {
+            display: none;
+        }
+        #cartBox.show {
+            display: block;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #1e293b;
+        }
+        .empty {
+            color: #94a3b8;
+            text-align: center;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
-
-    <header>
-        <div>
-            <div class="logo-title">NetPick | <span>نت بِك</span></div>
-            <div class="logo-sub">اختيارك للشبكة صار أسهل</div>
+<header>
+    <div>
+        <div class="logo-title">
+            NetPick | <span>نت بِك</span>
         </div>
-        <button class="cart-btn" onclick="alert('سلة التسوق فارغة')">🛒 السلة (0)</button>
-    </header>
-
-    <section class="hero">
-        <span class="tag">متجر أجهزة وحلول الشبكات</span>
-        <h1>نساعدك تختار الجهاز المناسب لاحتياجك!</h1>
-        <p>سواء كانت مشكلتك ضعف التغطية، أو بطء الألعاب، نحدد لك الباقة والجهاز المثالي بضغطة زر.</p>
-        <button class="main-btn">✨ تجربة خدمة «خلّنا نختار لك»</button>
-    </section>
-
-    <div class="container">
-        
-        <div class="card">
-            <div class="card-title">🎯 خدمة «خلّنا نختار لك»</div>
-            
-            <span class="q-label">1. ما هي مساحة ونوع المكان؟</span>
-            <div class="grid-3">
-                <div class="opt-card active">
-                    <div class="opt-title">🏢 شقة أو مكتب</div>
-                    <div class="opt-desc">أقل من 150 متر مربع</div>
-                </div>
-                <div class="opt-card">
-                    <div class="opt-title">🏡 منزل متوسط / دورين</div>
-                    <div class="opt-desc">150 - 350 متر مربع</div>
-                </div>
-                <div class="opt-card">
-                    <div class="opt-title">🏰 فيلا / مقر شركة</div>
-                    <div class="opt-desc">أكثر من 350 متر مربع</div>
-                </div>
-            </div>
-
-            <button class="main-btn" style="width: 100%; border-radius: 10px;" onclick="alert('💡 الحل المقترح: منظومة Mesh Wi-Fi 6 لتغطية شاملة وثابتة')">عرض الحل والمقترح المناسب ➔</button>
-        </div>
-
-        <div class="card">
-            <div class="card-title">📦 الباقات والأجهزة الأكثر طلباً</div>
-            
-            <div class="product-row">
-                <div>
-                    <div class="p-title">منظومة Mesh Wi-Fi 6 (3 قطع)</div>
-                    <div class="p-desc">تغطية شاملة للمنازل والفلل بدون انقطاع وباسم شبكة واحد.</div>
-                </div>
-                <div style="display:flex; align-items:center; gap:15px;">
-                    <span class="p-price">590 ر.س</span>
-                    <button class="add-btn" onclick="alert('تمت الإضافة')">إضافة +</button>
-                </div>
-            </div>
-
-            <div class="product-row">
-                <div>
-                    <div class="p-title">راوتر قيمنق احترافي Wi-Fi 6E</div>
-                    <div class="p-desc">سرعات خارقة للألعاب والأفلام مع بنج (Ping) منخفض جداً.</div>
-                </div>
-                <div style="display:flex; align-items:center; gap:15px;">
-                    <span class="p-price">340 ر.س</span>
-                    <button class="add-btn" onclick="alert('تمت الإضافة')">إضافة +</button>
-                </div>
-            </div>
-
-            <div class="product-row">
-                <div>
-                    <div class="p-title">موزع شبكة Gigabit Switch (8 Ports)</div>
-                    <div class="p-desc">لتوزيع الإنترنت عالي السرعة للمكاتب والأجهزة الذكية.</div>
-                </div>
-                <div style="display:flex; align-items:center; gap:15px;">
-                    <span class="p-price">120 ر.س</span>
-                    <button class="add-btn" onclick="alert('تمت الإضافة')">إضافة +</button>
-                </div>
-            </div>
-
-        </div>
-
+        <div class="logo-sub">اختيارك للشبكة صار أسهل</div>
     </div>
-
+    <button class="cart-btn" onclick="toggleCart()">
+        🛒 السلة (<span id="cartCount">0</span>)
+    </button>
+</header>
+<section class="hero">
+    <span class="tag">متجر أجهزة وحلول الشبكات</span>
+    <h1>نساعدك تختار الجهاز المناسب لاحتياجك!</h1>
+    <p>
+        سواء كانت مشكلتك ضعف التغطية أو بطء الألعاب،
+        نحدد لك الجهاز المناسب بضغطة زر.
+    </p>
+    <button class="main-btn" onclick="scrollToService()">
+        ✨ تجربة خدمة «خلّنا نختار لك»
+    </button>
+</section>
+<div class="container">
+    <div class="card" id="service">
+        <div class="card-title">
+            🎯 خدمة «خلّنا نختار لك»
+        </div>
+        <span class="q-label">
+            1. ما هي مساحة ونوع المكان؟
+        </span>
+        <div class="grid-3">
+            <div class="opt-card active"
+                 onclick="selectOption(this, 'small')">
+                <div class="opt-title">🏢 شقة أو مكتب</div>
+                <div class="opt-desc">أقل من 150 متر مربع</div>
+            </div>
+            <div class="opt-card"
+                 onclick="selectOption(this, 'medium')">
+                <div class="opt-title">🏡 منزل متوسط / دورين</div>
+                <div class="opt-desc">150 - 350 متر مربع</div>
+            </div>
+            <div class="opt-card"
+                 onclick="selectOption(this, 'large')">
+                <div class="opt-title">🏰 فيلا / مقر شركة</div>
+                <div class="opt-desc">أكثر من 350 متر مربع</div>
+            </div>
+        </div>
+        <button class="main-btn"
+                style="width:100%; border-radius:10px;"
+                onclick="showRecommendation()">
+            عرض الحل والمقترح المناسب ➔
+        </button>
+        <div id="result" class="result">
+            <h3 id="resultTitle"></h3>
+            <p id="resultText"></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-title">
+            📦 الباقات والأجهزة الأكثر طلباً
+        </div>
+        <div class="product-row">
+            <div>
+                <div class="p-title">
+                    منظومة Mesh Wi-Fi 6 (3 قطع)
+                </div>
+                <div class="p-desc">
+                    تغطية شاملة للمنازل والفلل بدون انقطاع.
+                </div>
+            </div>
+            <div>
+                <span class="p-price">590 ر.س</span>
+                <button class="add-btn"
+                        onclick="addToCart('Mesh Wi-Fi 6', 590)">
+                    إضافة +
+                </button>
+            </div>
+        </div>
+        <div class="product-row">
+            <div>
+                <div class="p-title">
+                    راوتر قيمنق احترافي Wi-Fi 6E
+                </div>
+                <div class="p-desc">
+                    سرعات عالية للألعاب مع Ping منخفض.
+                </div>
+            </div>
+            <div>
+                <span class="p-price">340 ر.س</span>
+                <button class="add-btn"
+                        onclick="addToCart('راوتر قيمنق Wi-Fi 6E', 340)">
+                    إضافة +
+                </button>
+            </div>
+        </div>
+        <div class="product-row">
+            <div>
+                <div class="p-title">
+                    Gigabit Switch (8 Ports)
+                </div>
+                <div class="p-desc">
+                    لتوزيع الإنترنت عالي السرعة.
+                </div>
+            </div>
+            <div>
+                <span class="p-price">120 ر.س</span>
+                <button class="add-btn"
+                        onclick="addToCart('Gigabit Switch', 120)">
+                    إضافة +
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card" id="cartBox">
+        <div class="card-title">
+            🛒 سلة التسوق
+        </div>
+        <div id="cartItems"></div>
+        <h3 style="margin-top:15px;">
+            الإجمالي:
+            <span id="total">0</span> ر.س
+        </h3>
+    </div>
+</div>
+<script>
+let selectedOption = "small";
+let cart = [];
+function selectOption(element, option) {
+    document.querySelectorAll(".opt-card")
+        .forEach(card => card.classList.remove("active"));
+    element.classList.add("active");
+    selectedOption = option;
+}
+function showRecommendation() {
+    const result = document.getElementById("result");
+    const title = document.getElementById("resultTitle");
+    const text = document.getElementById("resultText");
+    if (selectedOption === "small") {
+        title.textContent = "💡 اقتراحنا لك";
+        text.textContent =
+            "راوتر Wi-Fi 6 مناسب للشقق والمكاتب الصغيرة.";
+    } else if (selectedOption === "medium") {
+        title.textContent = "💡 اقتراحنا لك";
+        text.textContent =
+            "منظومة Mesh Wi-Fi 6 تساعد على تغطية المنزل كاملًا، خصوصًا مع وجود دورين.";
+    } else {
+        title.textContent = "💡 اقتراحنا لك";
+        text.textContent =
+            "منظومة Mesh Wi-Fi 6 متعددة القطع مناسبة للمساحات الكبيرة والفلل والمقرات.";
+    }
+    result.classList.add("show");
+}
+function addToCart(name, price) {
+    cart.push({
+        name: name,
+        price: price
+    });
+    updateCart();
+    alert("✅ تمت إضافة المنتج إلى السلة");
+}
+function updateCart() {
+    document.getElementById("cartCount").textContent = cart.length;
+    const cartItems = document.getElementById("cartItems");
+    cartItems.innerHTML = "";
+    if (cart.length === 0) {
+        cartItems.innerHTML =
+            '<div class="empty">السلة فارغة</div>';
+        return;
+    }
+    let total = 0;
+    cart.forEach((item, index) => {
+        total += item.price;
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+            <span>${item.name}</span>
+            <span>
+                ${item.price} ر.س
+                <button
+                    class="add-btn"
+                    onclick="removeFromCart(${index})">
+                    حذف
+                </button>
+            </span>
+        `;
+        cartItems.appendChild(div);
+    });
+    document.getElementById("total").textContent = total;
+}
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+function toggleCart() {
+    const cartBox = document.getElementById("cartBox");
+    cartBox.classList.toggle("show");
+    updateCart();
+    if (cartBox.classList.contains("show")) {
+        cartBox.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+function scrollToService() {
+    document.getElementById("service")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+</script>
 </body>
 </html>
